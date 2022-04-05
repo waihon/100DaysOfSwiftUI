@@ -6,3 +6,12 @@ func checkpoint01() {
 }
 
 checkpoint01()
+
+func checkpoint02() {
+    let array = ["one", "two", "three", "four", "three", "two", "one"]
+    let set = Set(array)
+    print(array.count)
+    print(set.count)
+}
+
+checkpoint02()
