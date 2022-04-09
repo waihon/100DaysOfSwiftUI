@@ -36,13 +36,11 @@ enum SquareRootErrors: Error {
 
 func intSquareRoot(for number: Int) throws -> Int {
     var squareRoot = 0
-    // var found = false
 
     if number < 1 || number > 10_000 {
         throw SquareRootErrors.outOfBounds
     }
-
-    // while !found && (squareRoot * squareRoot < number) {
+    
     while squareRoot * squareRoot < number {
         squareRoot += 1
 
