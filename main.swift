@@ -52,22 +52,41 @@ func intSquareRoot(for number: Int) throws -> Int {
     throw SquareRootErrors.noRoot
 }
 
+func checkpoint04() {
+    for i in 0...25 {
+        do {
+            try print(intSquareRoot(for: i))
+        } catch SquareRootErrors.outOfBounds {
+            print("The input must be between 1 and 1,000 both inclusive.")    
+        } catch SquareRootErrors.noRoot {
+            print("There is no square root for \(i).")
+        } catch {
+            print("There was an error.")
+        }
+    }
+}
+
+// Checkpoint 5
+func checkpoint05() {
+    let luckyNumbers = [7, 4, 38, 21, 16, 15, 12, 33, 31, 49]
+
+    let processedNumbers = luckyNumbers.filter {
+        !$0.isMultiple(of: 2)
+    }.sorted {
+        $0 < $1
+    }.map {
+        "\($0) is a lucky number" 
+    }
+    
+    for number in processedNumbers {
+        print(number)
+    }
+}
+
 // Call site
 
 // checkpoint01()
-
 // checkpoint02()
-
 // checkpoint03()
-
-for i in 0...25 {
-    do {
-        try print(intSquareRoot(for: i))
-    } catch SquareRootErrors.outOfBounds {
-        print("The input must be between 1 and 1,000 both inclusive.")    
-    } catch SquareRootErrors.noRoot {
-        print("There is no square root for \(i).")
-    } catch {
-        print("There was an error.")
-    }
-}
+// checkpoint04()
+checkpoint05()
