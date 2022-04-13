@@ -83,10 +83,50 @@ func checkpoint05() {
     }
 }
 
+// Checkpoint 6
+struct Car {
+    static let minGear = 1
+    static let maxGear = 10
+
+    let model: String
+    let seats: Int
+    private(set) var currentGear = 0
+
+    init(model: String, seats: Int) {
+        self.model = model
+        self.seats = seats
+    }
+
+    mutating func increaseGear() {
+        if currentGear < Self.maxGear {
+            currentGear += 1
+        }
+    }
+
+    mutating func decreaseGear() {
+        if currentGear > Self.minGear {
+            currentGear -= 1
+        }
+    }
+}
+
+func checkpoint06() {
+    var forester = Car(model: "Subaru Forester", seats: 5)
+    forester.increaseGear()
+    forester.increaseGear()
+    forester.increaseGear()
+    forester.increaseGear()
+    forester.decreaseGear()
+    print(forester.model)
+    print(forester.seats)
+    print(forester.currentGear)
+}
+
 // Call site
 
 // checkpoint01()
 // checkpoint02()
 // checkpoint03()
 // checkpoint04()
-checkpoint05()
+// checkpoint05()
+checkpoint06()
