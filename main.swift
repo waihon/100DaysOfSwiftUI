@@ -122,6 +122,128 @@ func checkpoint06() {
     print(forester.currentGear)
 }
 
+// Checkpoint 7
+class Animal {
+    var legs: Int    
+
+    init(legs: Int) {
+        self.legs = legs
+    }
+}
+
+class Dog: Animal {
+    init() {
+        super.init(legs: 4)
+    }
+
+    func speak() {
+        print("Bark!")
+    } 
+}
+
+class Corgi: Dog {
+    override func speak() {
+        print("Coorr!")
+    }
+}
+
+class Poodle: Dog {
+    override func speak() {
+        print("Poood!")
+    }
+}
+
+class Cat: Animal {
+    var isTame: Bool
+
+    init(isTame: Bool) {
+        self.isTame = isTame
+        super.init(legs: 4)
+    }
+    
+    func speak() {
+        print("Meow!")
+    }
+}
+
+class Persian: Cat {
+    override func speak() {
+        print("Perss!")
+    }
+}
+
+class Lion: Cat {
+    override func speak() {
+       print("Roar!") 
+    }
+}
+
+func checkpoint07() {
+    let dog = Dog()
+    print(dog.legs)
+    dog.speak()
+
+    let corgi = Corgi()
+    corgi.speak();
+
+    let poodle = Poodle()
+    poodle.speak()
+
+    let cat = Cat(isTame: true)
+    print(cat.legs)
+    print(cat.isTame)
+    cat.speak()
+    
+    let persian = Persian(isTame: true)
+    persian.speak()
+
+    let lion = Lion(isTame: false)
+    lion.speak()
+}
+
+// Checkpoint 8
+protocol Building {
+    var rooms: Int { get set }
+    var cost: Int { get set }
+    var agentName: String { get set }
+
+    func printSalesSummary()
+}
+
+extension Building {
+    func printSalesSummary() {
+        print("The building has \(rooms) rooms, costs $\(cost), and sold by \(agentName).")
+    }
+}
+
+struct House: Building {
+    var rooms: Int
+    var cost: Int
+    var agentName: String
+    
+    func printSalesSummary() {
+        print("The house has \(rooms) rooms, costs $\(cost), and sold by \(agentName).")
+    }
+}
+
+struct Office: Building {
+    var rooms: Int
+    var cost: Int
+    var agentName: String
+    
+    func printSalesSummary() {
+        print("The office building has \(rooms) rooms, costs $\(cost), and sold by \(agentName).")
+    }
+}
+
+func checkpoint08() {
+    let house = House(rooms: 4, cost: 500_000, agentName: "Joe Doe") 
+    house.printSalesSummary()
+
+    let office = Office(rooms: 8, cost: 3_250_000, agentName: "Mary Jane")
+    office.printSalesSummary()
+}
+
 // Call site
 
 // checkpoint01()
@@ -129,4 +251,6 @@ func checkpoint06() {
 // checkpoint03()
 // checkpoint04()
 // checkpoint05()
-checkpoint06()
+// checkpoint06()
+// checkpoint07()
+checkpoint08()
