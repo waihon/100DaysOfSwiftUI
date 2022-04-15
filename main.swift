@@ -244,6 +244,16 @@ func checkpoint08() {
     office.printSalesSummary()
 }
 
+// Checkpoint 9
+func randomElement(of intArray: [Int]?) -> Int {
+    intArray?.randomElement() ?? Int.random(in: 1...100)
+}
+
+func checkpoint09() {
+    print(randomElement(of: [101, 102, 103, 104, 105, 106, 107, 108, 109, 110]))
+    print(randomElement(of: nil))
+}
+
 // Call site
 
 // checkpoint01()
@@ -253,4 +263,5 @@ func checkpoint08() {
 // checkpoint05()
 // checkpoint06()
 // checkpoint07()
-checkpoint08()
+// checkpoint08()
+checkpoint09()
